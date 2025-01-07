@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface SettingsToggleProps {
   enabled: boolean;
   onToggle: () => void;

@@ -1,5 +1,4 @@
-import React from 'react';
-import { CheckCircle2, Circle, X } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import { Todo } from '../types';
 
 interface TodoItemProps {
@@ -15,13 +14,15 @@ export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
       <div className="flex items-center">
         <button
           onClick={() => onToggle(todo.id)}
-          className="text-blue-500 hover:text-blue-600 transition-colors mr-3"
+          className="text-blue-500 hover:text-blue-600 transition-colors mr-3 relative"
         >
-          {todo.completed ? (
-            <CheckCircle2 className="w-6 h-6" />
-          ) : (
-            <Circle className="w-6 h-6" />
-          )}
+          <div
+            className={`w-5 h-5 border-2 ${
+              todo.completed ? 'border-blue-500 bg-blue-500' : 'border-gray-300'
+            } rounded-sm flex items-center justify-center`}
+          >
+            {todo.completed && <Check className="w-4 h-4 text-white" />}
+          </div>
         </button>
         <span
           className={`${
