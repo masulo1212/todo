@@ -7,7 +7,7 @@ interface SettingsToggleProps {
 
 export function SettingsToggle({ enabled, onToggle }: SettingsToggleProps) {
   return (
-    <div className="flex items-center justify-end space-x-2 text-sm text-gray-500">
+    <div className="flex items-center justify-end space-x-2 text-sm text-gray-500 pb-20">
       <span>Move done things to end?</span>
       <button
         onClick={onToggle}

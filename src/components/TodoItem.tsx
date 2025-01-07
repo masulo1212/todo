@@ -10,9 +10,9 @@ interface TodoItemProps {
 
 export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
   return (
-    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg group hover:bg-gray-100 transition-colors">
+    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg group hover:bg-gray-100 transition-colors relative overflow-hidden">
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500" />
       <div className="flex items-center">
-        <div className="w-1 self-stretch bg-blue-500 rounded-full mr-3" />
         <button
           onClick={() => onToggle(todo.id)}
           className="text-blue-500 hover:text-blue-600 transition-colors mr-3"
@@ -23,7 +23,11 @@ export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
             <Circle className="w-6 h-6" />
           )}
         </button>
-        <span className={`${todo.completed ? 'line-through text-gray-400' : 'text-gray-700'}`}>
+        <span
+          className={`${
+            todo.completed ? 'line-through text-gray-400' : 'text-gray-700'
+          }`}
+        >
           {todo.text}
         </span>
       </div>
