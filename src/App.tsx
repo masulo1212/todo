@@ -1,23 +1,9 @@
-// 匯入所需的 React 元件和鉤子
-import React from 'react';
 import { ProgressBar } from './components/ProgressBar';
 import { TodoList } from './components/TodoList';
 import { AddTodoForm } from './components/AddTodoForm';
 import { SettingsToggle } from './components/SettingsToggle';
-import { useTodos } from './hooks/useTodos';
 
 function App() {
-  // 從自定義鉤子獲取所有待辦事項相關的狀態和方法
-  const {
-    todos,
-    completedPercentage,
-    moveDoneToEnd,
-    setMoveDoneToEnd,
-    addTodo,
-    toggleTodo,
-    deleteTodo,
-  } = useTodos();
-
   return (
     // 主容器：全螢幕背景和置中佈局
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 ">
@@ -30,24 +16,17 @@ function App() {
           {/* 主要內容區域：包含進度條和待辦事項列表 */}
           <div className="border-y border-y-2 border-gray-300 py-4">
             {/* 進度條元件：顯示完成百分比 */}
-            <ProgressBar percentage={completedPercentage} />
+            <ProgressBar />
             {/* 待辦事項列表區域 */}
             <div className="mt-4">
-              <TodoList
-                todos={todos}
-                onToggle={toggleTodo}
-                onDelete={deleteTodo}
-              />
+              <TodoList />
             </div>
           </div>
 
           {/* 設定區域：控制已完成項目的顯示位置 */}
-          <SettingsToggle
-            enabled={moveDoneToEnd}
-            onToggle={() => setMoveDoneToEnd(!moveDoneToEnd)}
-          />
+          <SettingsToggle />
           {/* 新增待辦事項的表單 */}
-          <AddTodoForm onAdd={addTodo} />
+          <AddTodoForm />
         </div>
       </div>
     </div>

@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
+import { useTodoStore } from '../store/todoStore';
 
-interface AddTodoFormProps {
-  onAdd: (text: string) => void;
-}
-
-export function AddTodoForm({ onAdd }: AddTodoFormProps) {
+export function AddTodoForm() {
+  const { addTodo } = useTodoStore();
   const [newTodo, setNewTodo] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (newTodo.trim()) {
-      onAdd(newTodo.trim());
+      addTodo(newTodo.trim());
       setNewTodo('');
     }
   };
