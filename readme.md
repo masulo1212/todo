@@ -16,13 +16,13 @@
 
 ## 快速開始
 
-1. 安裝依賴：
+1. Install dependencies：
 
 ```bash
 bun install
 ```
 
-2. 啟動開發服務器：
+2. Run server：
 
 ```bash
 bun dev
@@ -38,7 +38,7 @@ bun dev
 bun run build
 ```
 
-## 技術棧
+## Tech stack
 
 - React 18
 - TypeScript
@@ -46,7 +46,7 @@ bun run build
 - Tailwind CSS
 - Lucide React (圖標庫)
 
-## 專案結構
+## File structure
 
 ```
 src/
@@ -55,7 +55,3 @@ src/
   ├── main.tsx       # 應用入口
   └── index.css      # 全局樣式
 ```
-
-## 許可證
-
-MIT
