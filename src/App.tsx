@@ -1,43 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ProgressBar } from './components/ProgressBar';
 import { TodoList } from './components/TodoList';
 import { AddTodoForm } from './components/AddTodoForm';
 import { SettingsToggle } from './components/SettingsToggle';
-import { Todo } from './types';
+import { useTodos } from './hooks/useTodos';
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([
-    { id: 1, text: 'Learn React.js', completed: true },
-    { id: 2, text: 'Learn Golang', completed: false },
-    { id: 3, text: 'Learn Docker', completed: true },
-    { id: 4, text: 'Learn something else', completed: false },
-  ]);
-  const [moveDoneToEnd, setMoveDoneToEnd] = useState(false);
-
-  const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false }]);
-  };
-
-  const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const deleteTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const sortedTodos = moveDoneToEnd
-    ? [...todos].sort((a, b) => Number(a.completed) - Number(b.completed))
-    : todos;
-
-  const completedPercentage =
-    Math.round(
-      (todos.filter((todo) => todo.completed).length / todos.length) * 100
-    ) || 0;
+  const {
+    todos,
+    completedPercentage,
+    moveDoneToEnd,
+    setMoveDoneToEnd,
+    addTodo,
+    toggleTodo,
+    deleteTodo,
+  } = useTodos();
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 ">
@@ -49,7 +26,7 @@ function App() {
             <ProgressBar percentage={completedPercentage} />
             <div className="mt-4">
               <TodoList
-                todos={sortedTodos}
+                todos={todos}
                 onToggle={toggleTodo}
                 onDelete={deleteTodo}
               />
