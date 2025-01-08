@@ -1,6 +1,6 @@
 import { Check, X } from 'lucide-react';
-import { useTodoStore } from '../store/todoStore';
-import { Todo } from '../types';
+import { useTodoStore } from '../../store/todoStore';
+import { Todo } from '../../types';
 
 export function TodoItem({ todo }: { todo: Todo }) {
   const { toggleTodo, deleteTodo } = useTodoStore();

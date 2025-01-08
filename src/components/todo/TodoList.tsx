@@ -1,6 +1,6 @@
 import { TodoItem } from './TodoItem';
 import { useEffect, useRef } from 'react';
-import { useTodoStore } from '../store/todoStore';
+import { useTodoStore } from '../../store/todoStore';
 
 export function TodoList() {
   const listRef = useRef<HTMLDivElement>(null);
@@ -12,7 +12,10 @@ export function TodoList() {
   }, [todos]);
 
   return (
-    <div ref={listRef} className="space-y-2 max-h-[25dvh] overflow-y-auto pr-2">
+    <div
+      ref={listRef}
+      className="mt-4 space-y-2 max-h-[25dvh] overflow-y-auto pr-2"
+    >
       {todos.map((todo) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}

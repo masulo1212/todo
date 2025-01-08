@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
-import { useTodoStore } from '../store/todoStore';
+import { useTodoStore } from '../../store/todoStore';
 
 export function AddTodoForm() {
   const { addTodo } = useTodoStore();

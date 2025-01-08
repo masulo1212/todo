@@ -1,4 +1,4 @@
-import { useTodoStore } from '../store/todoStore';
+import { useTodoStore } from '../../store/todoStore';
 
 export function SettingsToggle() {
   const { setMoveDoneToEnd, moveDoneToEnd } = useTodoStore();

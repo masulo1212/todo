@@ -1,4 +1,4 @@
-import { useTodoStore } from '../store/todoStore';
+import { useTodoStore } from '../../store/todoStore';
 
 export function ProgressBar() {
   const { completedPercentage } = useTodoStore();
