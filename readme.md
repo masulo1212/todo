@@ -39,15 +39,17 @@
 
 1. ✅ 使用 Zustand 管理狀態
 
-- 使用 persist 持久化狀態
+   - 使用 persist 持久化狀態
 
 2. ✅ 新增目前 todo 數量
 
 3. ✅ 新增一鍵刪除所有以完成 todo
 
+   - 使用 custom hooks 管理狀態
+
 4. ✅ 修改刪除按鈕 hover 效果
 
-5. ✅ 新增 RWD(responsive web design)功能
+5. ✅ RWD(responsive web design)功能
 
 6. ✅ github pages 部署
 
