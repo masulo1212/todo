@@ -5,7 +5,7 @@ import { Todo } from "../../types";
 export function TodoItem({ todo }: { todo: Todo }) {
   const { toggleTodo, deleteTodo } = useTodoStore();
   return (
-    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg group hover:bg-gray-100 transition-colors relative overflow-hidden">
+    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg group md:hover:bg-gray-100 transition-colors relative overflow-hidden">
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500" />
       <div className="flex items-center">
         <button
@@ -30,7 +30,7 @@ export function TodoItem({ todo }: { todo: Todo }) {
       </div>
       <button
         onClick={() => deleteTodo(todo.id)}
-        className="opacity-0 group-hover:opacity-100 text-gray-400 hover:text-gray-600 transition-opacity"
+        className="md:opacity-0 md:group-hover:opacity-100 text-gray-400 hover:text-gray-600 transition-opacity"
       >
         <X className="w-5 h-5" />
       </button>

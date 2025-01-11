@@ -10,6 +10,7 @@ interface TodoState {
   addTodo: (text: string) => void;
   toggleTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
+  deleteCompletedTodos: () => void;
   getSortedTodos: () => Todo[];
 }
 
@@ -70,6 +71,15 @@ export const useTodoStore = create<TodoState>()(
                 newTodos.length) *
                 100
             ),
+          };
+        }),
+
+      deleteCompletedTodos: () =>
+        set((state) => {
+          const newTodos = state.todos.filter((todo) => !todo.completed);
+          return {
+            todos: newTodos,
+            completedPercentage: 0,
           };
         }),
 

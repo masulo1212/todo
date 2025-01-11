@@ -2,7 +2,7 @@
 
 這是一個使用 Create React App (CRA) + TypeScript 構建的 todo list app。
 
-## 功能特點
+## 基礎功能
 
 1. ✅ 輸入框功能：
 
@@ -34,6 +34,18 @@
 
    - 使用 moveDoneToEnd 狀態控制
    - getSortedTodos 函數處理排序邏輯
+
+## 新增功能
+
+1. ✅ 使用 Zustand 管理狀態
+
+- 使用 persist 持久化狀態
+
+2. ✅ 新增目前 todo 數量
+
+3. ✅ 新增一鍵刪除所有以完成 todo
+
+4. ✅ 修改刪除按鈕 hover 效果
 
 ## 開發環境需求
 
