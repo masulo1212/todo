@@ -1,10 +1,10 @@
-import { ProgressBar } from './components/todo/ProgressBar';
-import { TodoList } from './components/todo/TodoList';
-import { AddTodoForm } from './components/todo/AddTodoForm';
-import { SettingsToggle } from './components/todo/SettingsToggle';
-import { Background } from './components/background';
-import { TodoCard } from './components/TodoCard';
-import { Divider } from './components/Divider';
+import { Background } from "./components/Background";
+import { Divider } from "./components/Divider";
+import { AddTodoForm } from "./components/todo/AddTodoForm";
+import { ProgressBar } from "./components/todo/ProgressBar";
+import { SettingsToggle } from "./components/todo/SettingsToggle";
+import { TodoList } from "./components/todo/TodoList";
+import { TodoCard } from "./components/TodoCard";
 
 function App() {
   return (

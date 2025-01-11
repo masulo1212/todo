@@ -1,6 +1,6 @@
-import { TodoItem } from './TodoItem';
-import { useEffect, useRef } from 'react';
-import { useTodoStore } from '../../store/todoStore';
+import { useEffect, useRef } from "react";
+import { useTodoStore } from "../../store/todoStore";
+import { TodoItem } from "./TodoItem";
 
 export function TodoList() {
   const listRef = useRef<HTMLDivElement>(null);

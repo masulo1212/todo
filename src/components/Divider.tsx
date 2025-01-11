@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface DividerProps {
   children?: ReactNode;
@@ -6,8 +6,6 @@ interface DividerProps {
 
 export const Divider = ({ children }: DividerProps) => {
   return (
-    <div className="border-y border-y-2 border-gray-300 py-4 space-y-4">
-      {children}
-    </div>
+    <div className="border-y-2 border-gray-300 py-4 space-y-4">{children}</div>
   );
 };

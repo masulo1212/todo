@@ -1,6 +1,6 @@
-import { Check, X } from 'lucide-react';
-import { useTodoStore } from '../../store/todoStore';
-import { Todo } from '../../types';
+import { Check, X } from "lucide-react";
+import { useTodoStore } from "../../store/todoStore";
+import { Todo } from "../../types";
 
 export function TodoItem({ todo }: { todo: Todo }) {
   const { toggleTodo, deleteTodo } = useTodoStore();
@@ -14,7 +14,7 @@ export function TodoItem({ todo }: { todo: Todo }) {
         >
           <div
             className={`w-5 h-5 border-2 ${
-              todo.completed ? 'border-blue-500 bg-blue-500' : 'border-gray-300'
+              todo.completed ? "border-blue-500 bg-blue-500" : "border-gray-300"
             } rounded-sm flex items-center justify-center`}
           >
             {todo.completed && <Check className="w-4 h-4 text-white" />}
@@ -22,7 +22,7 @@ export function TodoItem({ todo }: { todo: Todo }) {
         </button>
         <span
           className={`${
-            todo.completed ? 'line-through text-gray-400' : 'text-gray-700'
+            todo.completed ? "line-through text-gray-400" : "text-gray-700"
           }`}
         >
           {todo.text}

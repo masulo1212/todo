@@ -1,57 +1,46 @@
-# Todo 應用程式
+# Getting Started with Create React App
 
-這是一個使用 React + TypeScript + Vite + Tailwind CSS 構建的現代化待辦事項應用程式。
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 功能特點
+## Available Scripts
 
-- 待辦事項的新增、編輯和刪除
-- 使用 Tailwind CSS 實現的現代化 UI 設計
-- TypeScript 提供的類型安全
-- 響應式設計，支援各種設備
+In the project directory, you can run:
 
-## 開發環境需求
+### `npm start`
 
-- [Bun](https://bun.sh/) (推薦的包管理器和運行時)
-- Node.js 18+ (如果不使用 Bun)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## 快速開始
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-1. Install dependencies：
+### `npm test`
 
-```bash
-bun install
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-2. Run server：
+### `npm run build`
 
-```bash
-bun dev
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-3. 打開瀏覽器訪問：`http://localhost:5173`
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## 構建專案
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-執行以下命令構建專案：
+### `npm run eject`
 
-```bash
-bun run build
-```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Tech stack
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- Lucide React (圖標庫)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## File structure
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-```
-src/
-  ├── components/     # React 組件
-  ├── App.tsx        # 主應用組件
-  ├── main.tsx       # 應用入口
-  └── index.css      # 全局樣式
-```
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { Todo } from '../types';
+import { create } from "zustand";
+import { Todo } from "../types";
 
 interface TodoState {
   todos: Todo[];
@@ -13,10 +13,10 @@ interface TodoState {
 }
 
 const initialTodos = [
-  { id: 1, text: 'Learn React.js', completed: true },
-  { id: 2, text: 'Learn Golang', completed: false },
-  { id: 3, text: 'Learn Docker', completed: true },
-  { id: 4, text: 'Learn something else', completed: false },
+  { id: 1, text: "Learn React.js", completed: true },
+  { id: 2, text: "Learn Golang", completed: false },
+  { id: 3, text: "Learn Docker", completed: true },
+  { id: 4, text: "Learn something else", completed: false },
 ];
 
 export const useTodoStore = create<TodoState>((set, get) => ({
