@@ -6,6 +6,7 @@ interface TodoState {
   todos: Todo[];
   moveDoneToEnd: boolean;
   completedPercentage: number;
+  isNewTodoAdded: boolean;
   setMoveDoneToEnd: () => void;
   addTodo: (text: string) => void;
   toggleTodo: (id: number) => void;
@@ -26,6 +27,7 @@ export const useTodoStore = create<TodoState>()(
     (set, get) => ({
       todos: initialTodos,
       moveDoneToEnd: false,
+      isNewTodoAdded: false,
       completedPercentage:
         Math.round(
           (initialTodos.filter((todo) => todo.completed).length /
@@ -39,6 +41,7 @@ export const useTodoStore = create<TodoState>()(
       addTodo: (text) =>
         set((state) => ({
           todos: [...state.todos, { id: Date.now(), text, completed: false }],
+          isNewTodoAdded: true,
           completedPercentage: Math.round(
             (state.todos.filter((todo) => todo.completed).length /
               (state.todos.length + 1)) *
@@ -53,6 +56,7 @@ export const useTodoStore = create<TodoState>()(
           );
           return {
             todos: newTodos,
+            isNewTodoAdded: false,
             completedPercentage: Math.round(
               (newTodos.filter((todo) => todo.completed).length /
                 newTodos.length) *
@@ -66,6 +70,7 @@ export const useTodoStore = create<TodoState>()(
           const newTodos = state.todos.filter((todo) => todo.id !== id);
           return {
             todos: newTodos,
+            isNewTodoAdded: false,
             completedPercentage: Math.round(
               (newTodos.filter((todo) => todo.completed).length /
                 newTodos.length) *
@@ -79,6 +84,7 @@ export const useTodoStore = create<TodoState>()(
           const newTodos = state.todos.filter((todo) => !todo.completed);
           return {
             todos: newTodos,
+            isNewTodoAdded: false,
             completedPercentage: 0,
           };
         }),

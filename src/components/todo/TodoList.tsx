@@ -4,14 +4,12 @@ import { TodoItem } from "./TodoItem";
 
 export function TodoList() {
   const listRef = useRef<HTMLDivElement>(null);
-  const { todos, getSortedTodos, deleteCompletedTodos } = useTodoStore();
+  const { todos, getSortedTodos, isNewTodoAdded } = useTodoStore();
   useEffect(() => {
-    if (listRef.current) {
+    if (listRef.current && isNewTodoAdded) {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
-  }, [todos]);
-
-  const hasCompletedTodos = todos.some((todo) => todo.completed);
+  }, [todos, isNewTodoAdded]);
 
   return (
     <div>
