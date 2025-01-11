@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# Todo 應用程式
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+這是一個使用 Create React App (CRA) + TypeScript 構建的 todo list app。
 
-## Available Scripts
+## 功能特點
 
-In the project directory, you can run:
+1. ✅ 輸入框功能：
 
-### `npm start`
+   - 使用 addTodo 函數處理新增
+   - 使用 Date.now() 作為 ID，確保按時間排序
+   - TodoList 組件中有自動滾動到底部的功能
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. ✅ 勾選框功能：
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+   - 使用 toggleTodo 函數處理勾選狀態
+   - 有完成狀態的切換功能
 
-### `npm test`
+3. ✅ 刪除按鈕：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - 使用 deleteTodo 函數處理刪除功能
+   - 新增 hover 時的刪除按鈕
 
-### `npm run build`
+4. ✅ 滾動條：
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - TodoList 組件中有 overflow-y-auto 和 max-h-[25dvh] 設置
+   - ref:https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4#the-new-css-units
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. ✅ 進度條：
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - 使用 completedPercentage 計算完成率
+   - 已經有取整數的處理
 
-### `npm run eject`
+6. ✅ 切換鈕：
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   - 使用 moveDoneToEnd 狀態控制
+   - getSortedTodos 函數處理排序邏輯
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 開發環境需求
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Node.js 18+
+- npm 或 bun
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 快速開始
 
-## Learn More
+1. 安裝依賴：
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+# 或
+bun install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. 啟動開發伺服器：
+
+```bash
+npm start
+# 或
+bun start
+```
+
+3. 打開瀏覽器訪問：`http://localhost:3000`
+
+## 構建專案
+
+執行以下命令構建專案：
+
+```bash
+npm run build
+# 或
+bun build
+```
+
+## 使用技術
+
+- React 18
+- TypeScript
+- Create React App
+- Tailwind CSS
+- Zustand (狀態管理)
+- Lucide React (圖標庫)
+
+## 專案結構
+
+```
+src/
+  ├── components/     # React 組件
+  │   ├── todo/      # 待辦事項相關組件
+  │   └── ...        # 其他共用組件
+  ├── store/         # 狀態管理
+  ├── types/         # TypeScript 類型定義
+  ├── App.tsx        # 主應用組件
+  ├── main.tsx       # 應用入口
+  └── index.css      # 全局樣式
+```

@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 import { Todo } from "../types";
 
 interface TodoState {
@@ -19,61 +20,71 @@ const initialTodos = [
   { id: 4, text: "Learn something else", completed: false },
 ];
 
-export const useTodoStore = create<TodoState>((set, get) => ({
-  todos: initialTodos,
-  moveDoneToEnd: false,
-  completedPercentage:
-    Math.round(
-      (initialTodos.filter((todo) => todo.completed).length /
-        initialTodos.length) *
-        100
-    ) || 0,
-
-  setMoveDoneToEnd: () =>
-    set((state) => ({ moveDoneToEnd: !state.moveDoneToEnd })),
-
-  addTodo: (text) =>
-    set((state) => ({
-      todos: [...state.todos, { id: Date.now(), text, completed: false }],
-      completedPercentage: Math.round(
-        (state.todos.filter((todo) => todo.completed).length /
-          (state.todos.length + 1)) *
-          100
-      ),
-    })),
-
-  toggleTodo: (id) =>
-    set((state) => {
-      const newTodos = state.todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      );
-      return {
-        todos: newTodos,
-        completedPercentage: Math.round(
-          (newTodos.filter((todo) => todo.completed).length / newTodos.length) *
+export const useTodoStore = create<TodoState>()(
+  persist(
+    (set, get) => ({
+      todos: initialTodos,
+      moveDoneToEnd: false,
+      completedPercentage:
+        Math.round(
+          (initialTodos.filter((todo) => todo.completed).length /
+            initialTodos.length) *
             100
-        ),
-      };
-    }),
+        ) || 0,
 
-  deleteTodo: (id) =>
-    set((state) => {
-      const newTodos = state.todos.filter((todo) => todo.id !== id);
-      return {
-        todos: newTodos,
-        completedPercentage: Math.round(
-          (newTodos.filter((todo) => todo.completed).length / newTodos.length) *
-            100
-        ),
-      };
-    }),
+      setMoveDoneToEnd: () =>
+        set((state) => ({ moveDoneToEnd: !state.moveDoneToEnd })),
 
-  getSortedTodos: () => {
-    const state = get();
-    return state.moveDoneToEnd
-      ? [...state.todos].sort(
-          (a, b) => Number(a.completed) - Number(b.completed)
-        )
-      : state.todos;
-  },
-}));
+      addTodo: (text) =>
+        set((state) => ({
+          todos: [...state.todos, { id: Date.now(), text, completed: false }],
+          completedPercentage: Math.round(
+            (state.todos.filter((todo) => todo.completed).length /
+              (state.todos.length + 1)) *
+              100
+          ),
+        })),
+
+      toggleTodo: (id) =>
+        set((state) => {
+          const newTodos = state.todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          );
+          return {
+            todos: newTodos,
+            completedPercentage: Math.round(
+              (newTodos.filter((todo) => todo.completed).length /
+                newTodos.length) *
+                100
+            ),
+          };
+        }),
+
+      deleteTodo: (id) =>
+        set((state) => {
+          const newTodos = state.todos.filter((todo) => todo.id !== id);
+          return {
+            todos: newTodos,
+            completedPercentage: Math.round(
+              (newTodos.filter((todo) => todo.completed).length /
+                newTodos.length) *
+                100
+            ),
+          };
+        }),
+
+      getSortedTodos: () => {
+        const state = get();
+        return state.moveDoneToEnd
+          ? [...state.todos].sort(
+              (a, b) => Number(a.completed) - Number(b.completed)
+            )
+          : state.todos;
+      },
+    }),
+    {
+      name: "todo-storage",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
