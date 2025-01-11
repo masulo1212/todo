@@ -16,7 +16,7 @@ export function TodoList() {
       <div className="flex justify-between items-center"></div>
       <div
         ref={listRef}
-        className="mt-4 space-y-2 max-h-[25dvh] overflow-y-auto pr-2"
+        className="mt-4 space-y-2 max-h-[25dvh] scrollable pr-2"
       >
         {getSortedTodos().map((todo) => (
           <TodoItem key={todo.id} todo={todo} />

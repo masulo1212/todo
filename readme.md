@@ -47,6 +47,10 @@
 
 4. ✅ 修改刪除按鈕 hover 效果
 
+5. ✅ 新增 RWD(responsive web design)功能
+
+6. ✅ github pages 部署
+
 ## 開發環境需求
 
 - Node.js 18+

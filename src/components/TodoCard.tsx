@@ -7,7 +7,7 @@ export const TodoCard = ({ children }: { children: React.ReactNode }) => {
   const totalTodos = todos.length;
 
   return (
-    <div className="w-full max-w-md bg-gradient-to-b from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 ">
+    <div className="sm:w-full max-w-md mx-auto my-auto bg-gradient-to-b from-blue-50 to-purple-50 rounded-xl shadow-lg p-4 sm:p-6">
       <div className="flex flex-row items-center justify-between mb-4">
         <h1 className="text-3xl font-semibold text-gray-800">Todo List</h1>
         <h1 className="text-2xl font-semibold text-gray-800">
